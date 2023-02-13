@@ -20,7 +20,7 @@
 # Usage:
 - Install Requirements `pip3 install -r requirements.txt`
 - Go to the project’s top level directory and run `scrapy crawl flipkart -a deta_cloud_project_key='Your Project Key'`
-- if we dont have deta project key then use `scrapy crawl flipkart -a deta_cloud_project_key=''`
+- if we dont have deta project key then use `scrapy crawl flipkart -a deta_cloud_project_key=''`, data will be saved in [outputs](https://github.com/jithinanievarghese/flipkart_scraper_scrapy/tree/main/flipkart_scraper/outputs)
 
 # Scraping flow:
 <p align="center">
