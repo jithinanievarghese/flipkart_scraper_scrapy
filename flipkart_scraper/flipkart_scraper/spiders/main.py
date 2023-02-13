@@ -46,8 +46,7 @@ class FlipkartSpider(Spider):
                 # cookies are hard coded cookies, update if retry is high
                 cookies=get_cookies(),
                 callback=self.parse,
-                meta={"meta": {"search_query": query, "page": 1}}
-                )
+                meta={"meta": {"search_query": query, "page": 1}})
 
     def parse(self, response):
         """
@@ -85,8 +84,7 @@ class FlipkartSpider(Spider):
             yield Request(
                 image_url,
                 callback=self.parse_images,
-                meta={"meta": row}
-            )
+                meta={"meta": row})
         # implementing pagination
         next_listing_page_url = row['next_listing_page_url']
         current_page = meta['page'] + 1
@@ -104,8 +102,7 @@ class FlipkartSpider(Spider):
             headers=get_headers(),
             cookies=get_cookies(),
             callback=self.parse,
-            meta={"meta": meta}
-        )
+            meta={"meta": meta})
 
     def parse_images(self, response):
         """
@@ -144,8 +141,8 @@ class FlipkartSpider(Spider):
             product_url=product_url,
             product_id=product_id,
             file_name=file_name,
-            image_url=image_url
-        )
+            image_url=image_url)
+
 
     def validate_response(self, response, response_len_limit=30000, request_type=None):
         """
@@ -173,5 +170,4 @@ class FlipkartSpider(Spider):
             response.request,
             spider=self,
             reason="invalid response / blocking",
-            max_retry_times=5
-        )
+            max_retry_times=5)
